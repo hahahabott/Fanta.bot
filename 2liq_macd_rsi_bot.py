@@ -11,7 +11,7 @@ import pandas as pd
 BINANCE_API_KEY = 'rwgn9tWQhrPkeWYEUhmzWEVO0Yt1cMOnAOgGSFwc7y8RtyHlywbBCzMyoJJmgc6H'
 BINANCE_API_SECRET = 'jnazgXkFe0nEHMZcHPyDJh2f2FMjni84nGX1wetO2ntoCGBIyBj83eGgTbUsizgN'
 TELEGRAM_TOKEN = '7300093292:AAFn0XkEppHk9I__y5MN9Vvz4ZtBrPJbf9Y'
-CHAT_ID = -1002627783040  # гуруҳ ID
+CHAT_ID = -1002627783040  # Telegram гуруҳ ID
 
 client = Client(BINANCE_API_KEY, BINANCE_API_SECRET)
 bot = Bot(TELEGRAM_TOKEN)
@@ -92,7 +92,7 @@ async def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("status", status))
     asyncio.create_task(monitor())
-    app.run_polling()
+    await app.run_polling()
 
 if __name__ == '__main__':
-    main()
+    asyncio.run(main())
