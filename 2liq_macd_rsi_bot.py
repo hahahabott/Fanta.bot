@@ -87,7 +87,7 @@ async def start(update, context):
 async def status(update, context):
     await update.message.reply_text("Ҳолат: Бот фаол ва кузатувда!")
 
-def main():
+async def main():
     app = Application.builder().token(TELEGRAM_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("status", status))
